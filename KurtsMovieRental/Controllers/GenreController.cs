@@ -7,32 +7,31 @@ using System.Web.Http;
 
 namespace KurtsMovieRental.Controllers
 {
-    public class MovieController : ApiController
+    public class GenreController : ApiController
     {
-
-        // GET: api/Movie
+        // GET: api/Genre
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET: api/Movie/5
+        // GET: api/Genre/5
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST: api/Movie
+        // POST: api/Genre
         public void Post([FromBody]string value)
         {
         }
 
-        // PUT: api/Movie/5
+        // PUT: api/Genre/5
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE: api/Movie/5
+        // DELETE: api/Genre/5
         public void Delete(int id)
         {
         }
