@@ -1,39 +1,36 @@
-﻿using System;
+﻿using KurtsMovieRental.Models;
+using KurtsMovieRental.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+using System.Web.Mvc;
 
 namespace KurtsMovieRental.Controllers
 {
-    public class RentalLogController : ApiController
+    public class RentalLogController : Controller
     {
-        // GET: api/RentalRecords
-        public IEnumerable<string> Get()
+
+        MovieServices movieServices = new MovieServices();
+
+
+        [HttpGet]
+        public ActionResult Edit(int id)
         {
-            return new string[] { "value1", "value2" };
+            var movie = movieServices.GetAllMovies().First(f => f.Id == id);
+            return View(movie);
         }
 
-        // GET: api/RentalRecords/5
-        public string Get(int id)
-        {
-            return "value";
-        }
 
-        // POST: api/RentalRecords
-        public void Post([FromBody]string value)
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection collection)
         {
-        }
+            //accept & parse the input (formcollection)
+            var updatedMovie = new Movie(collection);
 
-        // PUT: api/RentalRecords/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/RentalRecords/5
-        public void Delete(int id)
-        {
+            //save it to our database
+            //redirect to the correct page
+            return RedirectToAction("Index");
         }
     }
 }

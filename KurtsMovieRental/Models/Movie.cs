@@ -14,7 +14,7 @@ namespace KurtsMovieRental.Models
         public string Name { get; set; }
         public int? YearReleased { get; set; }
         public string Director { get; set; }
-        public int GenreId { get; set; }
+        public int? GenreId { get; set; }
 
 
         public Movie() { }
@@ -23,10 +23,10 @@ namespace KurtsMovieRental.Models
         public Movie(SqlDataReader reader)
         {
             this.Id = (int)reader["Id"];
-            this.Name = reader["Name"].ToString();
+            this.Name = reader["Name"]?.ToString();
             this.YearReleased = reader["YearReleased"] as int?;
-            this.Director = reader["Director"].ToString();
-            this.GenreId = (int)reader["GenreId"];
+            this.Director = reader["Director"]?.ToString();
+            this.GenreId = reader["GenreId"] as int?;
         }
 
         public Movie(FormCollection collection)

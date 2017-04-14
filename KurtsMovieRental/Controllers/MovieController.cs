@@ -1,4 +1,5 @@
-﻿using KurtsMovieRental.Services;
+﻿using KurtsMovieRental.Models;
+using KurtsMovieRental.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,20 +11,30 @@ namespace KurtsMovieRental.Controllers
     public class MovieController : Controller
     {
 
+        MovieServices movieServices = new MovieServices();
+
+
+        public ActionResult Index()
+        {
+            var newMovies = movieServices.GetAllMovies();
+            return View(newMovies);
+        }
+
         [HttpGet]
-        public ActionResult FullMovieList()
+        public ActionResult Create()
         {
             var movie = new MovieServices().GetAllMovies();
             return View(movie);
         }
 
-        [HttpGet]
-        public ActionResult AdminView()
+
+        [HttpDelete]
+        public ActionResult Delete()
         {
             var movie = new MovieServices().GetAllMovies();
             return View(movie);
-        }
 
+        }
 
     }
 }
