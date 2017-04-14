@@ -17,7 +17,7 @@ namespace KurtsMovieRental.Models
         public int GenreId { get; set; }
 
 
-        public Movie () { }
+        public Movie() { }
 
 
         public Movie(SqlDataReader reader)

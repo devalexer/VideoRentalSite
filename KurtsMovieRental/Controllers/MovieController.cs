@@ -1,40 +1,29 @@
-﻿using System;
+﻿using KurtsMovieRental.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+using System.Web.Mvc;
 
 namespace KurtsMovieRental.Controllers
 {
-    public class MovieController : ApiController
+    public class MovieController : Controller
     {
 
-        // GET: api/Movie
-        public IEnumerable<string> Get()
+        [HttpGet]
+        public ActionResult FullMovieList()
         {
-            return new string[] { "value1", "value2" };
+            var movie = new MovieServices().GetAllMovies();
+            return View(movie);
         }
 
-        // GET: api/Movie/5
-        public string Get(int id)
+        [HttpGet]
+        public ActionResult AdminView()
         {
-            return "value";
+            var movie = new MovieServices().GetAllMovies();
+            return View(movie);
         }
 
-        // POST: api/Movie
-        public void Post([FromBody]string value)
-        {
-        }
 
-        // PUT: api/Movie/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/Movie/5
-        public void Delete(int id)
-        {
-        }
     }
 }
