@@ -14,7 +14,6 @@ namespace KurtsMovieRental.Controllers
         AdminServices adminServices = new AdminServices();
 
 
-        [HttpGet]
         public ActionResult Index()
         {
             var movie = new MovieServices().GetAllMovies();

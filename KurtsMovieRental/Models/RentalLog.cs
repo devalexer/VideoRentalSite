@@ -13,8 +13,8 @@ namespace KurtsMovieRental.Models
         public int CustomerId { get; set; }
         public int MovieId { get; set; }
         public bool IsCheckedOut { get; set; }
-        public DateTime DateCheckedOut { get; set; }
-        public DateTime DueDate { get; set; }
+        public DateTime? DateCheckedOut { get; set; }
+        public DateTime? DueDate { get; set; }
 
 
         public RentalLog() { }

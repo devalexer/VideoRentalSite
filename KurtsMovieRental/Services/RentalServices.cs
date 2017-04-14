@@ -7,18 +7,18 @@ using System.Web;
 
 namespace KurtsMovieRental.Services
 {
-    public class CustomerServices
+    public class RentalServices
     {
-
+        //NEEDS WORK
         const string ConnectionString = @"Server=localhost\SQLEXPRESS;Database=MovieRentalDatabase;Trusted_Connection=True;";
 
 
-        public IEnumerable<Customer> GetAllCustomers()
+        public IEnumerable<Movie> GetAllOverDueMovies()
         {
-            var rv = new List<Customer>();
+            var rv = new List<Movie>();
             using (var connection = new SqlConnection(ConnectionString))
             {
-                var query = "SELECT * FROM Customers;";
+                var query = "SELECT * FROM Movies JOIN Genres ON Movies.GenreId = Genres.Id;";
 
                 var cmd = new SqlCommand(query, connection);
 
@@ -26,11 +26,12 @@ namespace KurtsMovieRental.Services
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    rv.Add(new Customer(reader));
+                    rv.Add(new Movie(reader));
                 }
                 connection.Close();
             }
             return rv;
         }
+
     }
 }

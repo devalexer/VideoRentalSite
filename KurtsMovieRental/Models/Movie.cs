@@ -15,6 +15,7 @@ namespace KurtsMovieRental.Models
         public int? YearReleased { get; set; }
         public string Director { get; set; }
         public int? GenreId { get; set; }
+        public Genre Genre { get; set; }
 
 
         public Movie() { }
