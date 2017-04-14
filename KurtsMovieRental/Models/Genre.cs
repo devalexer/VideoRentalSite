@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace KurtsMovieRental.Models
 {
@@ -19,6 +20,12 @@ namespace KurtsMovieRental.Models
         {
             this.Id = (int)reader["Id"];
             this.Name = reader["Name"].ToString();
+        }
+
+        public Genre(FormCollection collection)
+        {
+            this.Id = int.Parse(collection["Id"]);
+            this.Name = collection["Name"].ToString();
         }
 
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace KurtsMovieRental.Models
 {
@@ -26,7 +27,15 @@ namespace KurtsMovieRental.Models
             this.YearReleased = (int)reader["YearReleased"];
             this.Director = reader["Director"].ToString();
             this.GenreId = (int)reader["GenreId"];
-            
+        }
+
+        public Movie(FormCollection collection)
+        {
+            this.Id = int.Parse(collection["Id"]);
+            this.Name = collection["Name"].ToString();
+            this.YearReleased = int.Parse(collection["YearReleased"]);
+            this.Director = collection["Director"].ToString();
+            this.GenreId = int.Parse(collection["GenreId"]);
         }
     }
 }
