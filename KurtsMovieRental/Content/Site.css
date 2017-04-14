@@ -1,6 +1,8 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    /*background-image: url("/Images/redseats.jpg");*/
+    /*background-size: auto;*/
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -24,18 +26,30 @@ textarea {
 }
 
 .jumbotron {
-    background-image: url("/pictures/redseats.jpg");
+    background-image: url("/images/reelmoviecropped.jpg");
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: white;
-    /*    text-align: right;
-    background-repeat: no-repeat;
-    background-size: contain;*/
+    text-align: right;
+    padding-bottom: 250px;
+    /*width: inherit;
+    height: inherit;*/
+    max-height: initial;
+    max-width: inherit;
+    /*background-size:inherit;*/
+    /*background-size: auto;*/
 }
 
-.btn btn-primary btn-lg {
-    color: dimgray;
+.col-md-4 {
+    text-align: center;
 }
 
-.btn btn-default {
-    color: dimgray;
+.btn {
+    background-color: lightgray;
+    color: black;
+}
+
+footer {
+
+    position: absolute;
+    bottom: 0;
 }

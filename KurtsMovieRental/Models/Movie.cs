@@ -12,7 +12,7 @@ namespace KurtsMovieRental.Models
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public int YearReleased { get; set; }
+        public int? YearReleased { get; set; }
         public string Director { get; set; }
         public int GenreId { get; set; }
 
@@ -24,7 +24,7 @@ namespace KurtsMovieRental.Models
         {
             this.Id = (int)reader["Id"];
             this.Name = reader["Name"].ToString();
-            this.YearReleased = (int)reader["YearReleased"];
+            this.YearReleased = reader["YearReleased"] as int?;
             this.Director = reader["Director"].ToString();
             this.GenreId = (int)reader["GenreId"];
         }
