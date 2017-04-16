@@ -12,5 +12,19 @@ namespace KurtsMovieRental.Controllers
         {
             return View();
         }
+
+        //RETURN
+        public ActionResult Return()
+        {
+            return View();
+        }
+
+        //OVERDUE
+        public ActionResult Overdue()
+        {
+            return View();
+        }
+
+
     }
 }

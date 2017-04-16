@@ -20,21 +20,38 @@ namespace KurtsMovieRental.Controllers
             return View(newMovies);
         }
 
+
         [HttpGet]
         public ActionResult Create()
         {
-            var movie = new MovieServices().GetAllMovies();
-            return View(movie);
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(FormCollection collection)
+        {
+            var newMovie = new Movie(collection);
+            movieServices.CreateMovie(newMovie);
+            return RedirectToAction("Index");
         }
 
 
         [HttpDelete]
         public ActionResult Delete()
         {
-            var movie = new MovieServices().GetAllMovies();
-            return View(movie);
+            //var movie = new MovieServices().GetAllMovies();
+            return View();
 
         }
+
+        //[HttpPost]
+        //public ActionResult Delete(FormCollection collection, int id)
+        //{
+        //    var newMovie = new Movie(collection);
+        //    movieServices.DeleteMovie(newMovie);
+        //    return RedirectToAction("Index");
+        //}
+
 
     }
 }

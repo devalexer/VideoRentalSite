@@ -11,6 +11,7 @@ namespace KurtsMovieRental.Controllers
     public class AdminController : Controller
     {
 
+        MovieServices movieServices = new MovieServices();
         AdminServices adminServices = new AdminServices();
 
 
@@ -20,18 +21,5 @@ namespace KurtsMovieRental.Controllers
             return View(movie);
         }
 
-        [HttpGet]
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            var newMovie = new Movie(collection);
-            adminServices.CreateMovie(newMovie);
-            return RedirectToAction("Index");
-        }
     }
 }

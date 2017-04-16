@@ -32,7 +32,7 @@ namespace KurtsMovieRental.Models
 
         public Movie(FormCollection collection)
         {
-            this.Id = int.Parse(collection["Id"]);
+            //this.Id = int.Parse(collection["Id"]);
             this.Name = collection["Name"].ToString();
             this.YearReleased = int.Parse(collection["YearReleased"]);
             this.Director = collection["Director"].ToString();
